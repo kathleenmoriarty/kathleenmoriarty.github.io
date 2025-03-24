@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kathleen Moriarty's Portfolio</title>
     <link rel="stylesheet" href="./resources/style.css">
+    <script src="https://kit.fontawesome.com/2ca5bb1377.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="header">
@@ -20,7 +21,7 @@
                 </ul>
             </nav>
             <div class="header-text">
-                <p>UI/US Designer</p>
+                <p>UI/UX Designer</p>
                 <h1>Hi, I'm <span>Kathleen</span> Moriarty <br> from Los Angeles</h1>
             </div>
         </div>
@@ -39,10 +40,66 @@
                     <p>Kathleen Moriarty, mezzo-soprano, is a lecturer, teacher, and musician based in Los Angeles, currently performing with the LA Master Chorale, Pacific Chorale, the Choral Arts Initiative, Tonality, and various other groups. She received her Master’s in German Language and Literature, focusing on German Drama and Music, her BM in Vocal Performance with a focus in opera, and BA in German Studies from California State University, Long Beach.</p>
 
                     <div class="tab-titles">
-                        <p class="tab-links active-link">Skills</p>
-                        <p class="tab-links">Experience</p>
-                        <p class="tab-links">Education</p>
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
                     </div>
+
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>UI/UX</span><br>Designing Web/App Interfaces</li>
+                            <li><span>Web Development</span><br>Web App Development</li>
+                            <li><span>App Development</span><br>Building Android/iOS Apps</li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>2024 - Current</span><br>Front End Engineer Certifcation Training Codecademy</li>
+                            <li><span>2018 - Current</span><br>Educator, Director, Lecturer</li>
+                            <li><span>2014 - Current</span><br>Musician, Performer</li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2025</span><br>Front End Engineer Certification Codecademy</li>
+                            <li><span>2022</span><br>Master of Arts, German Language and Literature - CSU, Long Beach</li>
+                            <li><span>2018</span><br>Bachelor of Arts, German Studies - CSU, Long Beach </li>
+                            <li><span>2018</span><br>Bachelor of Music, Vocal Performance - Bob Cole Conservatory of Music</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICES -->
+
+    <div id="services">
+        <div class="container">
+            <h1 class="sub-title">My Services</h1>
+            <div class="services-list">
+                <div>
+                    <i class="fas fa-code"></i>
+                    <h2>Web Design</h2>
+                    <p>Use HTML, CSS, Javascript, Vite, and React to create new and inventive aesthetic interfaces for users.</p>
+                    <a href="#">Learn more</a>
+                </div>
+
+                <div>
+                    <i class="fas fa-crop-alt"></i>
+                    <h2>UI/UX Design</h2>
+                    <p>Use HTML, CSS, Javascript, Vite, and React to create new and inventive aesthetic interfaces for users.</p>
+                    <a href="#">Learn more</a>
+                </div>
+
+                <div>
+                    <i class="fa-brands fa-app-store"></i>
+                    <h2>App Design</h2>
+                    <p>Use HTML, CSS, Javascript, Vite, and React to create new and inventive aesthetic interfaces for users.</p>
+                    <a href="#">Learn more</a>
                 </div>
             </div>
         </div>
@@ -50,7 +107,25 @@
 
 
     <!--JAVASCRIPT-->
-    <script src="./resources/script.js" async></script>
+    <script>
+        const tablinks = document.getElementsByClassName("tab-links");
+
+        const tabcontents = document.getElementsByClassName("tab-contents");
+
+        function opentab (tabName) {
+            for(tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
+
+            for(tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab");
+            }
+
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabName).classList.add("active-tab");
+        }
+    </script>
+    <!--<script src="./resources/script.js" async></script>-->
 </body>
 </html>
 
